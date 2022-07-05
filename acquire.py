@@ -3,6 +3,9 @@ import pandas as pd
 import os
 
 def acquire_exoplanet_data():
+    '''
+    Pulls in data features from original data source based on manual review
+    '''
     if os.path.isfile('exoplanet_data.csv'):
         df = pd.read_csv('exoplanet_data.csv', index_col=0)
     else:

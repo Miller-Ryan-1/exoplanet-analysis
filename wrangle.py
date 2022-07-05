@@ -58,6 +58,9 @@ def splitter(df, target = 'None', train_split_1 = .8, train_split_2 = .7, random
         return train, validate, test    
 
 def initial_clean(df):
+    '''
+    Cleans the dataset before the split for EDA
+    '''
     # Create Columns/Features
     df['planet'] = df.hostname + '-' + df.pl_letter
     df['multistar'] = np.where(df.sy_snum > 1, 1,0)
@@ -104,6 +107,9 @@ def initial_clean(df):
     return df
 
 def final_clean(train,validate,test):
+    '''
+    Cleans the Dataset after EDA for modeling
+    '''
     X_lt_train = train[['luminosity','star_temp']]
     X_lt_validate = validate[['luminosity','star_temp']]
     X_lt_test = test[['luminosity','star_temp']]

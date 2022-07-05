@@ -11,6 +11,9 @@ These are helper functions for univariate and multivariate exploration of the Ex
 # DATA DIGNITY -------------------------------------------------------------
 
 def column_null_analyzer(df):
+    '''
+    Creates list of nulls and their percentage of rows
+    '''
     dict_list = []
     for col in df.columns:
         col_nulls = df[col].isnull().sum()
@@ -21,8 +24,10 @@ def column_null_analyzer(df):
 # UNIVARIATE DISTRIBUTIONS -------------------------------------------------
 
 def univariate(df):
+    '''
+    Plots distribution of all numerical columns
+    '''
     num_cols = [col for col in df.columns if df[col].dtype != 'object']
-    cat_cols = [col for col in df.columns if df[col].dtype == 'object']
 
     for i in num_cols:
         print(i)
